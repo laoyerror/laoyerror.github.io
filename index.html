@@ -1,47 +1,71 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-	<title>链接跳转处理 - LAOYEE</title>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-	<link rel="stylesheet" href="assets/css/main.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0,viewport-fit=cover">
+    <title>请用浏览器访问</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 
-<body class="is-preload">
+<body>
+    <div id="tips" style="font-size:25px;text-align: center;line-height: 50px;"></div>
+    <script>
+        // var url = 'https://19ta.com/go/?url=https://myzye.com/posts/5723f4f8.html';
+        // var url = '?p=5723f4f8&t=2';
+        var url = window.location.search;
+        var ua = navigator.userAgent.toLowerCase();
+        var isQQ = ua.indexOf('qq') != -1;
+        var isWeixin = ua.indexOf('micromessenger') != -1;
+        var isAndroid = ua.indexOf('android') != -1;
+        var isIos = (ua.indexOf('iphone') != -1) || (ua.indexOf('ipad') != -1);
+        var notice_openBrowser = "<h2>请点击右上角，通过浏览器打开本页面</h2><br />或者复制下面链接到浏览器打开<br />" + urlParmStr
+        var urlParmStr = ''
+        var param = url.replace('?', '')
+        var obj = {}
 
-	<!-- Header -->
-	<header id="header">
-		<h1>QQ、微信链接处理</h1>
-		<p>在下方输入需要跳转的链接，即可生成防红接口。<br>
-			复制下方生成的链接，粘贴到微信或者QQ即可。</p>
-	</header>
+        if (url) {
+            param.trim().split('&').forEach(item => obj[item.split('=')[0]] = item.split('=')[1])
+            var isValid = obj.hasOwnProperty('p')
+            if (obj.hasOwnProperty('t')) {
+                if (obj.t === '1' && isValid) {
+                    urlParmStr = 'https://myzye.com/posts/' + obj.p + '.html'
+                } else if (obj.t === '2' && isValid) {
+                    urlParmStr = 'https://laoyee.app/posts/' + obj.p + '.html'
+                } else if (obj.t === '3' && isValid) {
+                    urlParmStr = 'https://huoban.men/posts/' + obj.p + '.html'
+                } else {
+                    block()
+                }
+            } else {
+                if (isValid) {
+                    urlParmStr = 'https://myzye.com/posts/' + obj.p + '.html'
+                } else {
+                    block()
+                }
+            }
 
-	<!-- Signup Form -->
-	<form id="signup-form" method="post">
-		<input type="url" name="url" id="url" placeholder="需要跳转的网址" />
-		<input type="button" value="生成" onclick="build_url()" />
-	</form>
-	<p id="b_url"></p>
+            if (isWeixin || isQQ) {
+                if (isAndroid) {
+                    document.getElementById("tips").innerHTML = notice_openBrowser;
+                } else if (isIos) {
+                    document.getElementById("tips").innerHTML = notice_openBrowser;
+                } else {
+                    document.getElementById("tips").innerHTML = notice_openBrowser;
+                }
+            } else {
+                location.href = urlParmStr;
+            }
 
-	<script src="./assets/js/build_url.js"></script>
+        } else {
+            block()
+        }
 
-	<!-- Footer -->
-	<footer id="footer">
-		<ul class="icons">
-
-			<li><a href="https://github.com/Qiantigers/qq_fanghong" class="icon brands fa-github" target="_blank"><span
-						class="label">GitHub</span></a></li>
-
-		</ul>
-		<!--				<ul class="copyright">
-					<li>&copy; Powered by <a href="https://www.myzye.com/" target="_blank">LAOYEE</a></li>
-				</ul>-->
-	</footer>
-
-	<!-- Scripts -->
-	<script src="assets/js/main.js"></script>
+        function block() {
+            location.href = '/sim.html'
+        }
+    </script>
 </body>
 
 </html>
