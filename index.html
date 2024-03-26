@@ -5,28 +5,57 @@
     <meta charset="UTF-8">
     <meta name="viewport"
         content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0,viewport-fit=cover">
-    <title>请用浏览器访问</title>
+    <title>提示</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <style>
+        * {
+            background-color: #ededed;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+
         h2 {
-            font-size: 20px;
+            font-size: 22px;
         }
 
         span {
-            font-size: 16px;
+            font-size: 20px;
         }
 
-        #tips {
+        .tips {
+            font-size: 16px;
+            margin-top: 80px;
+            text-align: center;
+            line-height: 50px;
+        }
+
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            z-index: 9;
+            width: 100%;
+            line-height: 30px;
+            text-align: center;
+            color: #AAB7B8;
             font-size: 12px;
         }
     </style>
 </head>
 
 <body>
-    <div id="tips" style="text-align: center;line-height: 50px;"></div>
+    <div class="tips">
+    </div>
+    <div class="footer">
+        永久地址发布页(<strong>19ta.com</strong>)
+    </div>
     <script>
-        // var url = 'https://19ta.com/go/?url=https://myzye.com/posts/5723f4f8.html';
-        // var url = '?p=5723f4f8&t=2';
         var url = window.location.search;
         var ua = navigator.userAgent.toLowerCase();
         var isQQ = ua.indexOf('qq') != -1;
