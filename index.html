@@ -46,24 +46,25 @@
                 }
             }
 
-            if (isWeixin || isQQ) {
-                if (isAndroid) {
-                    document.getElementById("tips").innerHTML = notice_openBrowser;
-                } else if (isIos) {
-                    document.getElementById("tips").innerHTML = notice_openBrowser;
-                } else {
-                    document.getElementById("tips").innerHTML = notice_openBrowser;
-                }
-            } else {
-                location.href = urlParmStr;
-            }
-
         } else {
             block()
         }
 
+        if (isWeixin || isQQ) {
+            if (isAndroid) {
+                document.getElementById("tips").innerHTML = notice_openBrowser;
+            } else if (isIos) {
+                document.getElementById("tips").innerHTML = notice_openBrowser;
+            } else {
+                document.getElementById("tips").innerHTML = notice_openBrowser;
+            }
+        } else {
+            location.href = urlParmStr;
+        }
+
         function block() {
-            location.href = '/sim.html'
+            // location.href = '/sim.html'
+            urlParmStr = 'https://myzye.com/'
         }
     </script>
 </body>

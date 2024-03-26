@@ -8,7 +8,7 @@ function build_url() {
     // url = document.location.href + "go/?url=" + url;
     let arr = url.split("/");
     let text = arr[arr.length - 1].replace(".html", "");
-    url = document.location.href + "?p=" + text;
+    url = "https://" + document.location.hostname + "/?p=" + text;
     document.getElementById(
       "b_url"
     ).innerHTML = `<a href='javascript:void(0);'>${url}</a>`;
