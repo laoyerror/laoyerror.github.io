@@ -3,11 +3,11 @@ function build_url() {
   if (url === "" || url.indexOf("http") === -1) {
     document.getElementById(
       "b_url"
-    ).innerHTML = `输入的不是链接或者未加http请求头！`;
+    ).innerHTML = `输入的不是链接或者未加https请求头！`;
   } else {
     // url = document.location.href + "go/?url=" + url;
-    let arr = url.split("/");
-    let text = arr[arr.length - 1].replace(".html", "");
+    let arr = url.split("/posts/");
+    let text = arr[arr.length - 1].replace("/", "");
     url = "https://" + document.location.hostname + "/?p=" + text;
     document.getElementById(
       "b_url"
