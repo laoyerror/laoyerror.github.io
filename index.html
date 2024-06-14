@@ -2,192 +2,186 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-        content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0,viewport-fit=cover">
-    <title>LAOYEE - 永久地址发布页</title>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <style>
-        /* * {
-            background: url(https://cdn.meijiecao.top/file/ly-static/t/tl8gKl.svg), linear-gradient(#ededed 0%, #ededed 100%) repeat center center;
-            background-blend-mode: soft-light;
-            background-size: 300px, cover;
-        } */
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0,viewport-fit=cover">
+	<title>LAOYEE - 永久地址发布页</title>
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<style>
+		/* * {
+			background: url(https://cdn.meijiecao.top/file/ly-static/t/tl8gKl.svg), linear-gradient(#ededed 0%, #ededed 100%) repeat center center;
+			background-blend-mode: soft-light;
+			background-size: 300px, cover;
+		} */
 
-        body {
-            margin: 0;
-            padding: 0;
-            width: 100vw;
-            height: 100vh;
-            overflow: hidden;
-            background: #ededed;
-        }
+		body {
+			margin: 0;
+			padding: 0;
+			width: 100vw;
+			height: 100vh;
+			overflow: hidden;
+			/* background: #ededed; */
+			background: linear-gradient(#ededed, #fff);
+		}
 
-        h2 {
-            font-size: 22px;
-        }
+		h2 {
+			font-size: 22px;
+		}
 
-        span {
-            font-size: 20px;
-        }
+		span {
+			font-size: 20px;
+		}
 
-        a:link {
-            text-decoration: none;
-        }
+		a:link {
+			text-decoration: none;
+		}
 
-        a:visited {
-            text-decoration: none;
-        }
+		a:visited {
+			text-decoration: none;
+		}
 
-        a:hover {
-            text-decoration: none;
-        }
+		a:hover {
+			text-decoration: none;
+		}
 
-        a:active {
-            text-decoration: none;
-        }
+		a:active {
+			text-decoration: none;
+		}
 
-        #tips {
-            font-size: 16px;
-            margin-top: 80px;
-            text-align: center;
-            line-height: 50px;
-        }
+		#tips {
+			font-size: 16px;
+			margin-top: 80px;
+			text-align: center;
+			line-height: 50px;
+		}
 
-        #node {
-            text-align: center;
-            width: 100%;
-            height: 100%;
-            overflow-y: auto;
-        }
+		#node {
+			text-align: center;
+			width: 100%;
+			height: 100%;
+			overflow-y: auto;
+		}
 
-        p {
-            width: 75%;
-            margin: 50px auto;
-            font-size: 18px;
-            font-weight: bold;
-            color: #515A5A;
-        }
+		p {
+			width: 75%;
+			margin: 20px auto;
+			font-size: 14px;
+			font-weight: 500;
+			color: rgba(0, 0, 0, 0.5);
+		}
 
-        #node a {
-            display: block;
-            font-size: 18px;
-            font-weight: bold;
-            color: black;
-            margin: 0 auto;
-            width: 50%;
-            max-width: 250px;
-            height: 60px;
-            line-height: 60px;
-            border-radius: 25px;
-            border: 5px solid salmon;
-            margin-bottom: 20px;
-        }
+		.top {
+			width: 75%;
+			color: #515A5A;
+			font-weight: bold;
+			margin: 20px auto;
+			font-size: 20px;
+		}
 
-        .green {
-            color: #808B96 !important;
-            border: 5px solid #A9DFBF !important;
-        }
+		#node a {
+			display: block;
+			font-size: 18px;
+			font-weight: bold;
+			color: rgba(0, 0, 0, 0.8);
+			margin: 0 auto;
+			width: 50%;
+			max-width: 250px;
+			height: 60px;
+			line-height: 60px;
+			border-radius: 25px;
+			border: 5px solid salmon;
+			margin-bottom: 20px;
+		}
 
-        .title {
-            font-size: 18px;
-            font-weight: bold;
-            color: #515A5A;
-            margin: 50px 0 15px 0;
-        }
+		.green {
+			color: rgba(0, 0, 0, 0.8) !important;
+			border: 5px solid #A9DFBF !important;
+		}
 
-        .avatar {
-            position: fixed;
-            bottom: 0;
-            right: 0;
-            z-index: 99999;
-        }
+		.title {
+			font-size: 18px;
+			font-weight: bold;
+			color: rgba(0, 0, 0, 0.5);
+			margin: 30px 0 15px 0;
+		}
 
-        .footer {
-            position: fixed;
-            left: 0;
-            bottom: 0;
-            z-index: 9;
-            width: 100%;
-            line-height: 30px;
-            text-align: center;
-            color: #AAB7B8;
-            font-size: 12px;
-        }
-    </style>
+		.avatar {
+			position: fixed;
+			bottom: 0;
+			right: 0;
+			z-index: 99999;
+		}
+	</style>
 </head>
 
 <body>
-    <div id="tips"></div>
-    <div id="node"></div>
-    <img class="avatar" src="https://www.meijiecao.top/picture/myzye.png" alt="LAOYEE">
-    <div class="footer">
-        地址发布页<strong>19ta.com</strong>
-    </div>
-    <script>
-        var url = window.location.search;
-        var ua = navigator.userAgent.toLowerCase();
-        var isQQ = ua.indexOf('qq') != -1;
-        var isWeixin = ua.indexOf('micromessenger') != -1;
-        var isAndroid = ua.indexOf('android') != -1;
-        var isIos = (ua.indexOf('iphone') != -1) || (ua.indexOf('ipad') != -1);
-        var urlParmStr = 'https://myzye.com/'
-        var notice_openBrowser = "<h2>请点击右上角，通过浏览器打开本页面</h2><br /><span>或者复制下面链接到浏览器打开</span><br />"
-        var param = url.replace('?', '')
-        var obj = {}
-        if (url) {
-            param.trim().split('&').forEach(item => obj[item.split('=')[0]] = item.split('=')[1])
-            var isValid = obj.hasOwnProperty('p')
-            if (isValid) {
-                urlParmStr = '/posts/' + obj.p
-            } else {
-                block()
-            }
-            // if (obj.hasOwnProperty('t')) {
-            //     if (obj.t === '1' && isValid) {
-            //         urlParmStr = 'https://myzye.com/posts/' + obj.p + '.html'
-            //     } else if (obj.t === '2' && isValid) {
-            //         urlParmStr = 'https://laoyee.app/posts/' + obj.p + '.html'
-            //     } else if (obj.t === '3' && isValid) {
-            //         urlParmStr = 'https://huoban.men/posts/' + obj.p + '.html'
-            //     } else {
-            //         block()
-            //     }
-            // } else {
-            //     if (isValid) {
-            //         urlParmStr = 'https://myzye.com/posts/' + obj.p + '.html'
-            //     } else {
-            //         block()
-            //     }
-            // }
+	<div id="tips"></div>
+	<div id="node"></div>
+	<img class="avatar" src="https://www.meijiecao.top/picture/myzye.png" alt="LAOYEE">
+	<script>
+		var url = window.location.search;
+		var ua = navigator.userAgent.toLowerCase();
+		var isQQ = ua.indexOf('qq') != -1;
+		var isWeixin = ua.indexOf('micromessenger') != -1;
+		var isAndroid = ua.indexOf('android') != -1;
+		var isIos = (ua.indexOf('iphone') != -1) || (ua.indexOf('ipad') != -1);
+		var urlParmStr = 'https://myzye.com/'
+		var notice_openBrowser = "<h2>请点击右上角，通过浏览器打开本页面</h2><br /><span>或者复制下面链接到浏览器打开</span><br />"
+		var param = url.replace('?', '')
+		var obj = {}
+		if (url) {
+			param.trim().split('&').forEach(item => obj[item.split('=')[0]] = item.split('=')[1])
+			var isValid = obj.hasOwnProperty('p')
+			if (isValid) {
+				urlParmStr = '/posts/' + obj.p
+			} else {
+				block()
+			}
+			// if (obj.hasOwnProperty('t')) {
+			//     if (obj.t === '1' && isValid) {
+			//         urlParmStr = 'https://myzye.com/posts/' + obj.p + '.html'
+			//     } else if (obj.t === '2' && isValid) {
+			//         urlParmStr = 'https://laoyee.app/posts/' + obj.p + '.html'
+			//     } else if (obj.t === '3' && isValid) {
+			//         urlParmStr = 'https://huoban.men/posts/' + obj.p + '.html'
+			//     } else {
+			//         block()
+			//     }
+			// } else {
+			//     if (isValid) {
+			//         urlParmStr = 'https://myzye.com/posts/' + obj.p + '.html'
+			//     } else {
+			//         block()
+			//     }
+			// }
 
-        } else {
-            block()
-        }
+		} else {
+			block()
+		}
 
-        if (isWeixin || isQQ) {
-            if (isAndroid) {
-                document.getElementById("tips").innerHTML = notice_openBrowser + 'https://myzye.com' + urlParmStr;
-            } else if (isIos) {
-                document.getElementById("tips").innerHTML = notice_openBrowser + 'https://myzye.com' + urlParmStr;
-            } else {
-                document.getElementById("tips").innerHTML = notice_openBrowser + 'https://myzye.com' + urlParmStr;
-            }
-        } else {
-            // location.href = urlParmStr;
-            document.getElementById("tips").style.display = 'none'
-            const notice_routeSelection = '<p>海外多节点部署，解决部分地区无法访问，请选择适合自己的最佳线路</p><div class="title">点击访问:</div><a href="' + 'https://myzye.com' + urlParmStr + '" target="_blank">线路一🔥</a>' + '<a href="' + 'https://laoyee.app' + urlParmStr + '" target="_blank">线路二</a>' + '<a href="' + 'https://huoban.men' + urlParmStr + '" target="_blank">线路三</a>'
-            const more = '<div class="title">更多推荐:</div><a class="green" href="https://www.meijiecao.top/ka.html" target="_blank">免费领取流量卡</a><a class="green" href="https://www.meijiecao.top/" target="_blank">在线小工具</a><a class="green" href="https://www.ak47s.cn/more/video.html" target="_blank">在线影视合集</a>'
-            document.getElementById("node").innerHTML = notice_routeSelection + more;
-            console.log(notice_routeSelection, '浏览器环境，正在跳转！');
-        }
+		if (isWeixin || isQQ) {
+			if (isAndroid) {
+				document.getElementById("tips").innerHTML = notice_openBrowser + 'https://myzye.com' + urlParmStr;
+			} else if (isIos) {
+				document.getElementById("tips").innerHTML = notice_openBrowser + 'https://myzye.com' + urlParmStr;
+			} else {
+				document.getElementById("tips").innerHTML = notice_openBrowser + 'https://myzye.com' + urlParmStr;
+			}
+		} else {
+			// location.href = urlParmStr;
+			document.getElementById("tips").style.display = 'none'
+			const notice_routeSelection = '<div class="top">LAOYEE地址发布页</div><p>海外多节点部署，解决部分地区无法访问，请选择适合自己的最佳线路</p><a href="' + 'https://myzye.com' + urlParmStr + '" target="_blank">线路一🔥</a>' + '<a href="' + 'https://meijiecao.com' + urlParmStr + '" target="_blank">线路二🔥</a>' + '<a href="' + 'https://laoyee.app' + urlParmStr + '" target="_blank">线路三</a>' + '<a href="' + 'https://huoban.men' + urlParmStr + '" target="_blank">线路四</a>'
+			const more = '<div class="title">更多服务推荐:</div><a class="green" href="https://www.meijiecao.top/ka.html" target="_blank">免费领流量卡</a><a class="green" href="https://www.meijiecao.top/" target="_blank">在线小工具</a><a class="green" href="https://www.ak47s.cn/more/video.html" target="_blank">在线影视合集</a><a class="green" href="https://www.ak47s.cn/" target="_blank">在线影视合集</a>'
+			document.getElementById("node").innerHTML = notice_routeSelection + more;
+			console.log(notice_routeSelection, '浏览器环境，正在跳转！');
+		}
 
-        function block() {
-            // urlParmStr = 'https://myzye.com/'
-            urlParmStr = '/apps/'
-            console.log('传参为空');
-        }
-    </script>
+		function block() {
+			// urlParmStr = 'https://myzye.com/'
+			urlParmStr = '/apps/'
+			console.log('传参为空');
+		}
+	</script>
 </body>
 
 </html>
