@@ -89,13 +89,18 @@
 			height: 60px;
 			line-height: 60px;
 			border-radius: 25px;
-			border: 5px solid salmon;
+			border: 5px dashed #F5B7B1;
 			margin-bottom: 20px;
 		}
 
 		.green {
 			color: rgba(0, 0, 0, 0.8) !important;
-			border: 5px solid #A9DFBF !important;
+			border: 5px dashed #A9DFBF !important;
+		}
+
+		.gg {
+			color: rgba(0, 0, 0, 0.8) !important;
+			border: 5px dashed #AED6F1 !important;
 		}
 
 		.title {
@@ -110,6 +115,62 @@
 			bottom: 0;
 			right: 0;
 			z-index: 99999;
+			cursor: pointer;
+		}
+
+		.popup {
+			display: none;
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100vw;
+			height: 100vh;
+			z-index: 999999;
+			background-color: rgba(0, 0, 0, 0.3);
+		}
+
+		.popup .content {
+			position: relative;
+			width: 80%;
+			min-height: 300px;
+			max-height: 500px;
+			overflow-y: auto;
+			padding: 10px;
+			margin-top: 30%;
+			margin-left: 50%;
+			transform: translate(-50%, 0);
+			background-color: #fff;
+			border-radius: 15px;
+		}
+
+		.popup .content .gzh {
+			width: 80%;
+			margin-left: 10%;
+		}
+
+		.popup-title {
+			font-size: 16px;
+			font-weight: bold;
+			margin-top: 10px;
+		}
+
+		.popup-title:first-child {
+			margin-top: 0;
+		}
+
+		.popup .text {
+			font-size: 14px;
+			color: rgba(0, 0, 0, 0.6);
+		}
+
+		.close {
+			width: 50px;
+			height: 50px;
+			margin-top: 20px;
+			margin-left: 50%;
+			transform: translate(-50%, 0);
+			z-index: 999999999;
+			cursor: pointer;
 		}
 	</style>
 </head>
@@ -117,8 +178,25 @@
 <body>
 	<div id="tips"></div>
 	<div id="node"></div>
-	<img class="avatar" src="https://www.meijiecao.top/picture/myzye.png" alt="LAOYEE">
+	<img class="avatar" onclick="openPopup()" src="https://www.meijiecao.top/picture/myzye.png" alt="LAOYEE">
+	<div class="popup">
+		<div class="content">
+			<div class="popup-title">联系方式：</div>
+			<div class="text">email: admin@19ta.com</div>
+			<div class="text">wx: happyduang</div>
+			<div class="popup-title">发布页地址：</div>
+			<div class="text">https://19ta.com/</div>
+			<div class="text">https://xiao.huoban.men/</div>
+			<div class="popup-title">关注老夜防失联：</div>
+			<div class="text">微信搜索公众号：夜雨聆风blog</div>
+			<img class="gzh"
+				src="https://lcap-static-saas.nos-eastchina1.126.net/app/1699843131014_939e8a75866d574e63a349a4dcff7b34.jpeg"
+				alt="公众号">
+		</div>
+		<img class="close" src="./images/close.svg" onclick="closePopup()" alt="laoyee">
+	</div>
 	<script>
+		var popup = document.querySelector('.popup')
 		var url = window.location.search;
 		var ua = navigator.userAgent.toLowerCase();
 		var isQQ = ua.indexOf('qq') != -1;
@@ -171,8 +249,9 @@
 			// location.href = urlParmStr;
 			document.getElementById("tips").style.display = 'none'
 			const notice_routeSelection = '<div class="top">LAOYEE地址发布页</div><p>海外多节点部署，解决部分地区无法访问，请选择适合自己的最佳线路</p><a href="' + 'https://myzye.com' + urlParmStr + '" target="_blank">线路一🔥</a>' + '<a href="' + 'https://meijiecao.com' + urlParmStr + '" target="_blank">线路二🔥</a>' + '<a href="' + 'https://laoyee.app' + urlParmStr + '" target="_blank">线路三</a>' + '<a href="' + 'https://huoban.men' + urlParmStr + '" target="_blank">线路四</a>'
-			const more = '<div class="title">更多服务推荐:</div><a class="green" href="https://www.meijiecao.top/ka.html" target="_blank">免费领流量卡</a><a class="green" href="https://www.meijiecao.top/" target="_blank">在线小工具</a><a class="green" href="https://www.ak47s.cn/more/video.html" target="_blank">在线影视合集</a><a class="green" href="https://www.ak47s.cn/" target="_blank">在线影视合集</a>'
-			document.getElementById("node").innerHTML = notice_routeSelection + more;
+			const more = '<div class="title">更多服务推荐:</div><a class="green" href="https://www.meijiecao.top/" target="_blank">在线小工具</a><a class="green" href="https://www.ak47s.cn/more/video.html" target="_blank">在线影视合集</a><a class="green" href="https://www.ak47s.cn/" target="_blank">绿色网址导航</a>'
+			const gg = '<div class="title">支持一下</div><a class="gg" href="https://www.meijiecao.top/ka.html" target="_blank">免费领流量卡</a><a class="gg" href="https://apsgo.com?id=93955" target="_blank">正版软件购买</a><a class="gg" href="https://sourl.cn/ANPBes" target="_blank">优惠券领取</a>'
+			document.getElementById("node").innerHTML = notice_routeSelection + more + gg;
 			console.log(notice_routeSelection, '浏览器环境，正在跳转！');
 		}
 
@@ -180,6 +259,13 @@
 			// urlParmStr = 'https://myzye.com/'
 			urlParmStr = '/apps/'
 			console.log('传参为空');
+		}
+
+		function openPopup() {
+			popup.style.display = 'block'
+		}
+		function closePopup() {
+			popup.style.display = 'none'
 		}
 	</script>
 </body>
